@@ -2,6 +2,7 @@
 #include "pExec.h"
 #include "robot.h"
 #include  "tactics/tactic.h"
+#include <ssl_common/config.cpp>
 
 using namespace std;
 //using namespace HAL;

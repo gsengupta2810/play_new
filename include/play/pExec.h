@@ -27,7 +27,7 @@ namespace Strategy
   private:
     Play::Result playResult;
     Robot*       robot[HomeTeam::SIZE];
-    Tactic*    tacticCS[HomeTeam::SIZE];
+    Tactic*    tactic[HomeTeam::SIZE];
 
   public:
     PExec(krssg_ssl_msgs::BeliefState& state);

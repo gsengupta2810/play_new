@@ -5,6 +5,7 @@
 #include "play.hpp"
 #include "krssg_ssl_msgs/BeliefState.h"
 #include "tactics/tactic.h"
+#include <ssl_common/config.h>
 
 #define GAP SELECT(1000,100)
 
