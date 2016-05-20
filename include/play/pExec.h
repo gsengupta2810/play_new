@@ -6,6 +6,7 @@
 #include "expPS.h"
 #include "play.hpp"
 #include "ps.h"
+#include <tactics/tactic_factory.h>
 
 // Forward Declarations
 namespace Strategy

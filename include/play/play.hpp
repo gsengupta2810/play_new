@@ -7,11 +7,14 @@
 #include "timer.h"
 #include <string>
 #include "krssg_ssl_msgs/BeliefState.h"
+#include "tactics/tactic.h"
+#include <tactics/tactic_factory.h>
+#include <comdef.h>
 
 namespace Strategy
 {
   using namespace std;
-  
+
   class Play
   {
     friend class PS;

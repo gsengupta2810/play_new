@@ -7,14 +7,16 @@
 
 #include "ros/ros.h"
 #include <krssg_ssl_msgs/TacticPacket.h>
+#include "tactics/tactic.h"
 #include <tactics/tactic_factory.h>
 #include <string>
+#include <utility>
 
 using namespace krssg_ssl_msgs;
 
 ros::Subscriber state_sub;
 krssg_ssl_msgs::BeliefState* state;
-std::vector<std::pair<std::string, Tactic::Param>> roleList;
+std::vector<std::pair<std::string, Tactic::Param> > roleList;
 unsigned int currTacticIdx;
 
 void Callback(krssg_ssl_msgs::BeliefState::ConstPtr& msg)
