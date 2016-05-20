@@ -159,7 +159,7 @@ namespace Strategy
     //assignRoles();   //####################### why assign roles here ? ###########################
   } // selectPlay
 
-  Robot* PExec::executePlay(unsigned int* returnIndx)
+  Robot** PExec::executePlay(unsigned int* returnIndx)
   {
     //std::vector<std::pair<string, Tactic::Param> > roleList[HomeTeam::SIZE];
     if (canTransit() && tryTransit())

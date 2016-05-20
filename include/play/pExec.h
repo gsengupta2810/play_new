@@ -6,13 +6,15 @@
 #include "expPS.h"
 #include "play.hpp"
 #include "ps.h"
+#include "../../../ssl_robot/include/ssl_robot/robot.h"
 #include <tactics/tactic_factory.h>
+#include "krssg_ssl_msgs/BeliefState.h"
 
 // Forward Declarations
 namespace Strategy
 {
-  class BeliefState;
-  class Robot;
+  //class BeliefState;
+  //class Robot;
 }
 
 namespace Strategy
@@ -28,7 +30,7 @@ namespace Strategy
     Tactic*    tacticCS[HomeTeam::SIZE];
 
   public:
-    PExec(BeliefState& state);
+    PExec(krssg_ssl_msgs::BeliefState& state);
 
     ~PExec();
 
@@ -48,7 +50,7 @@ namespace Strategy
   public:
     void selectPlay(void);
 
-    Robot* executePlay(unsigned int*);
+    Robot** executePlay(unsigned int*);
 
     void evaluatePlay(void);
 

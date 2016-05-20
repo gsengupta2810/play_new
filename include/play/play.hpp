@@ -104,7 +104,8 @@ namespace Strategy
 
     // Returns true if the play is applicable otherwise false
     virtual bool applicable(void) const {
-      if((state.gameRunning && this->PositionPlay == PLAYTYPE_YES)|| (!state.gameRunning && this->PositionPlay == PLAYTYPE_NO)) {
+      if((/*state.gameRunning && */ this->PositionPlay == PLAYTYPE_YES))//|| (/*state.gameRunning && */ this->PositionPlay == PLAYTYPE_NO)) 
+      {
         //printf("%d %d", state.gameRunning, this->PositionPlay);
         return false;
       }
