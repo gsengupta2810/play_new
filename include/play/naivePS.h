@@ -5,6 +5,7 @@
 
 #include "play.hpp"
 #include "ps.h"
+#include "krssg_ssl_msgs/BeliefState.h"
 
 namespace Strategy
 {
@@ -13,7 +14,7 @@ namespace Strategy
   class NaivePS : public PS
   {
   public:
-    NaivePS(const BeliefState& state);
+    NaivePS(const krssg_ssl_msgs::BeliefState& state);
     ~NaivePS();
 
     void updateWeights(Play::Result termResult) const;

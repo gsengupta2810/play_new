@@ -12,7 +12,7 @@ using namespace std;
 
 namespace Strategy
 {
-  PS::PS(const BeliefState& state) : 
+  PS::PS(const krssg_ssl_msgs::BeliefState& state) : 
     PlayBook(state),
     playID(PlayBook::None)
   {

@@ -5,14 +5,12 @@
 #include <cmath>
 #include "comdef.h"
 #include "expPS.h"
-#include "beliefState.h"
-#include "logger.h"
 
-using namespace Util;
+
 
 namespace Strategy
 {
-  ExpPS::ExpPS(const BeliefState& state) : 
+  ExpPS::ExpPS(const krssg_ssl_msgs::BeliefState& state) : 
     PS(state)
   { }
 

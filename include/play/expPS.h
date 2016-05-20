@@ -3,6 +3,7 @@
 
 #include "ps.h"
 #include "play.hpp"
+#include "krssg_ssl_msgs/BeliefState.h"
 
 namespace Strategy
 {
@@ -11,7 +12,7 @@ namespace Strategy
   class ExpPS : public PS
   {
   public:
-    ExpPS(const BeliefState& state);
+    ExpPS(const krssg_ssl_msgs::BeliefState& state);
     
     ~ExpPS();
 

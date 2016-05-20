@@ -3,9 +3,8 @@
 
 #include <utility>
 #include "play.hpp"
-#include "beliefState.h"
-#include "tactic.h"
-#include "fieldConfig.h"
+#include "krssg_ssl_msgs/BeliefState.h"
+#include "tactics/tactic.h"
 
 #define GAP SELECT(1000,100)
 
@@ -14,7 +13,7 @@ namespace Strategy
   class PSetPosition : public Play
   {
   public:
-    inline PSetPosition(const BeliefState& state) 
+    inline PSetPosition(const krssg_ssl_msgs::BeliefState& state) 
       : Play(state)
     {
       name = "SetPositon";

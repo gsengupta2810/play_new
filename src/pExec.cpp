@@ -11,6 +11,7 @@ namespace Strategy
   PExec::PExec(BeliefState& state) :
     PS(state)
   {
+    state1=state;
     for (int botID = 0; botID < HomeTeam::SIZE; ++botID)
     {
       tactic[botID] = new Tactic();
@@ -105,7 +106,7 @@ namespace Strategy
       {
         ++numActiveTactics;
 
-        if (selTactic->tState != Tactic::COMPLETED)
+        if (!selTactic->isCompleted(state1))
         {
           // If there is at least one incomplete active tactic, then cannot transit
           //Util::Logger::toStdOut("Active tactic not completed  : %d %d\n",roleID,selTactic->tState);
@@ -129,7 +130,7 @@ namespace Strategy
         Tactic::ID tID       = currPlay->roleList[roleID][currTacticIdx].first;
         Tactic*    selTactic = robot[roleID]->tacticList[tID];
 
-        if (selTactic->tState != Tactic::COMPLETED)
+        if (!selTactic->isCompleted(state1))
         {
           // If there is at least one incomplete tactic, then cannot transit
           return false;

@@ -1,13 +1,11 @@
 #include "comdef.h"
 #include "naivePS.h"
-#include "beliefState.h"
-#include "logger.h"
 
-using namespace Util;
+
 
 namespace Strategy
 {
-  NaivePS::NaivePS(const BeliefState& state) 
+  NaivePS::NaivePS(const krssg_ssl_msgs::BeliefState& state) 
     : PS(state)
   { } // NaivePS
 
@@ -38,8 +36,8 @@ namespace Strategy
       mult = 3.0f/2.0f;
       break;
 
-    default:
-      Logger::abort("Unhandled play done return value");
+    default:break;
+     // Logger::abort("Unhandled play done return value");
     }
     
     // TODO Do the post-processing here

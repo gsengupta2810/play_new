@@ -3,15 +3,15 @@
 
 #include <utility>
 #include "play.hpp"
-#include "beliefState.h"
-#include "tactic.h"
+#include "krssg_ssl_msgs/BeliefState.h"
+#include "tactics/tactic.h"
 
 namespace Strategy
 {
   class PNone : public Play
   {
   public:
-    inline PNone(const BeliefState& state) 
+    inline PNone(const krssg_ssl_msgs::BeliefState& state) 
       : Play(state)
     {
       name = "None";

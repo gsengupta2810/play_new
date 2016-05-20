@@ -4,10 +4,7 @@
 #include "playBook.h"
 #include "play.hpp"
 #include "pNone.hpp"
-#include "pTestPlay.hpp"
-#include "pOffensePlay.hpp"
 #include "pSetPosition.hpp"
-#include "pDefensiveGoToGoal.hpp"
 
 namespace Strategy
 {

@@ -24,7 +24,7 @@ namespace Strategy
     virtual void updateWeights(Play::Result termResult) const = 0;
     
   public:
-    PS(const BeliefState& state);
+    PS(const krssg_ssl_msgs::BeliefState& state);
     ~PS();
   }; // class PS
 } // namespace Strategy

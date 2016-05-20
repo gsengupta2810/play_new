@@ -37,11 +37,11 @@ namespace Strategy
   private:
     // Stores the index to the tactics in all role that is to be executed by the team
     unsigned int currTacticIdx;
-
+    krssg_ssl_msgs::BeliefState& state1;
     // Current tactic in execution by each bot
     std::pair<string, Tactic::Param> currTactic[HomeTeam::SIZE];
 
-    void assignRoles(unsigned int*);
+    void assignRoles(void);
 
     bool canTransit(void);
 
