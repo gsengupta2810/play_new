@@ -1,6 +1,8 @@
 #ifndef PLAY_BOOK_H
 #define PLAY_BOOK_H
 
+#include "krssg_ssl_msgs/BeliefState.h"
+
 // Forward Declarations
 namespace Strategy
 {
@@ -21,11 +23,11 @@ namespace Strategy
     };
 
   protected:
-    const BeliefState& state;
+    const krssg_ssl_msgs::BeliefState& state;
     Play*              playList[MAX_PLAYS];
 
   public:
-    PlayBook(const BeliefState& state);
+    PlayBook(const krssg_ssl_msgs::BeliefState& state);
     
     ~PlayBook();
 

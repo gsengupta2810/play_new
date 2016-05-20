@@ -6,8 +6,9 @@
 #include "krssg_ssl_msgs/BeliefState.h"
 #include "tactics/tactic.h"
 #include <ssl_common/config.h>
+#include <ssl_common/geometry.hpp>
 
-#define GAP SELECT(1000,100)
+#define GAP 1000  //SELECT(1000,100)
 
 namespace Strategy
 {

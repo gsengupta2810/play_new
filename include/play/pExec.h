@@ -9,6 +9,7 @@
 #include "../../../ssl_robot/include/ssl_robot/robot.h"
 #include <tactics/tactic_factory.h>
 #include "krssg_ssl_msgs/BeliefState.h"
+#include <ssl_common/config.h>
 
 // Forward Declarations
 namespace Strategy

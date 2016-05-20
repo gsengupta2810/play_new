@@ -8,7 +8,7 @@
 
 namespace Strategy
 {
-  PlayBook::PlayBook(const BeliefState& state) : 
+  PlayBook::PlayBook(const krssg_ssl_msgs::BeliefState& state) : 
     state(state)
   {
     reload();

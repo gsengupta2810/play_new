@@ -2,7 +2,6 @@
 #include "pExec.h"
 #include "robot.h"
 #include  "tactics/tactic.h"
-#include <ssl_common/config.cpp>
 
 using namespace std;
 //using namespace HAL;
@@ -58,7 +57,7 @@ namespace Strategy
 
         /* Assign the Goalie role to always the bot id 0 */
         //if(roleIdx != 0)
-        bestBot = robot[roleIdx]->tacticList[tID]->chooseBestBot(freeBots, &tParam);
+        bestBot = robot[roleIdx]->curTactic->chooseBestBot(freeBots, &tParam);
 
         freeBots.remove(bestBot);
         
@@ -101,7 +100,7 @@ namespace Strategy
     for (int roleID = 0; roleID < HomeTeam::SIZE; ++roleID)
     {
       Tactic::ID tID       = currPlay->roleList[roleID][currTacticIdx].first;
-      Tactic*    selTactic = robot[roleID]->tacticList[tID];
+      Tactic*    selTactic = robot[roleID]->curTactic;
 
       if (selTactic->isActiveTactic())
       {
@@ -129,7 +128,7 @@ namespace Strategy
       for (int roleID = 0; roleID < HomeTeam::SIZE; ++roleID)
       {
         Tactic::ID tID       = currPlay->roleList[roleID][currTacticIdx].first;
-        Tactic*    selTactic = robot[roleID]->tacticList[tID];
+        Tactic*    selTactic = robot[roleID]->curTactic;
 
         if (!selTactic->isCompleted(state1))
         {
