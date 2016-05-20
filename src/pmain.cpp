@@ -19,7 +19,7 @@ krssg_ssl_msgs::BeliefState state;
 std::vector<std::pair<std::string, Strategy::Tactic::Param> > roleList;
 unsigned int currTacticIdx;
 
-void Callback(krssg_ssl_msgs::BeliefState::ConstPtr& msg)
+void Callback(const krssg_ssl_msgs::BeliefState::ConstPtr& msg)
 {
   state.isteamyellow=msg->isteamyellow;
   state.frame_number=msg->frame_number ;
