@@ -10,6 +10,7 @@
 #include <tactics/tactic_factory.h>
 #include "krssg_ssl_msgs/BeliefState.h"
 #include <ssl_common/config.h>
+#include "ros/ros.h"
 
 // Forward Declarations
 namespace Strategy
@@ -31,7 +32,7 @@ namespace Strategy
     Tactic*    tactic[HomeTeam::SIZE];
 
   public:
-    PExec(krssg_ssl_msgs::BeliefState& state);
+    PExec(krssg_ssl_msgs::BeliefState& state,ros::NodeHandle&);
 
     ~PExec();
 

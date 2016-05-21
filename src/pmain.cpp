@@ -54,7 +54,7 @@ int main(int argc, char  *argv[])
   //****************************************************************
   krssg_ssl_msgs::TacticPacket tp0, tp1,tp2,tp3,tp4,tp5;
   ros::Rate loop_rate(100);
-  PExec pExec(state);
+  PExec pExec(state,n);
   //****************************************************************
 
   while (ros::ok())

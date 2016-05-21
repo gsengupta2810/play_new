@@ -8,14 +8,14 @@ using namespace std;
 
 namespace Strategy
 {
-  PExec::PExec(krssg_ssl_msgs::BeliefState& state) :
+  PExec::PExec(krssg_ssl_msgs::BeliefState& state,ros::NodeHandle& n) :
     NaivePS(state)
   {
     state1=state;
     for (int botID = 0; botID < HomeTeam::SIZE; ++botID)
     {
       tactic[botID] = new Tactic();
-      robot[botID]    = new Robot(state);
+      robot[botID]    = new Robot(botID,n);
     }
   } // PExec
 
@@ -57,7 +57,7 @@ namespace Strategy
 
         /* Assign the Goalie role to always the bot id 0 */
         //if(roleIdx != 0)
-        bestBot = robot[roleIdx]->curTactic.get()->chooseBestBot(freeBots, &tParam);
+        bestBot = robot[roleIdx]->curTactic.get()->chooseBestBot(state1,freeBots, tParam);
 
         freeBots.remove(bestBot);
         
