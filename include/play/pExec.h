@@ -51,7 +51,7 @@ namespace Strategy
   public:
     void selectPlay(void);
 
-    Robot** executePlay(unsigned int*);
+    Robot** executePlay();
 
     void evaluatePlay(void);
 

@@ -66,7 +66,7 @@ int main(int argc, char  *argv[])
           pExec.evaluatePlay();
           pExec.selectPlay();
         }
-        Robot** robot=pExec.executePlay(&currTacticIdx);
+        Robot** robot=pExec.executePlay();
         
         Tactic::Param tParam;
 

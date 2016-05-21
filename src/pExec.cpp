@@ -8,14 +8,14 @@ using namespace std;
 
 namespace Strategy
 {
-  PExec::PExec(BeliefState& state) :
-    PS(state)
+  PExec::PExec(krssg_ssl_msgs::BeliefState& state) :
+    NaivePS(state)
   {
     state1=state;
     for (int botID = 0; botID < HomeTeam::SIZE; ++botID)
     {
       tactic[botID] = new Tactic();
-      robot[botID]    = new Robot(state, );
+      robot[botID]    = new Robot(state);
     }
   } // PExec
 
@@ -57,7 +57,7 @@ namespace Strategy
 
         /* Assign the Goalie role to always the bot id 0 */
         //if(roleIdx != 0)
-        bestBot = robot[roleIdx]->curTactic->chooseBestBot(freeBots, &tParam);
+        bestBot = robot[roleIdx]->curTactic.get()->chooseBestBot(freeBots, &tParam);
 
         freeBots.remove(bestBot);
         
@@ -99,23 +99,26 @@ namespace Strategy
 
     for (int roleID = 0; roleID < HomeTeam::SIZE; ++roleID)
     {
-      Tactic::ID tID       = currPlay->roleList[roleID][currTacticIdx].first;
-      Tactic*    selTactic = robot[roleID]->curTactic;
+      std::string tID       = currPlay->roleList[roleID][currTacticIdx].first;
+      Tactic*    selTactic = robot[roleID]->curTactic.get();
 
       if (selTactic->isActiveTactic())
       {
         ++numActiveTactics;
 
-        if (!selTactic->isCompleted(state1))
-        {
-          // If there is at least one incomplete active tactic, then cannot transit
-          //Util::Logger::toStdOut("Active tactic not completed  : %d %d\n",roleID,selTactic->tState);
-          return false;
-        }
-        else
-          //Util::Logger::toStdOut("Active tactic COMPLETED : %d %d\n",roleID,selTactic->tState);
+          if (!selTactic->isCompleted(state1))
+          {
+            // If there is at least one incomplete active tactic, then cannot transit
+            //Util::Logger::toStdOut("Active tactic not completed  : %d %d\n",roleID,selTactic->tState);
+            return false;
+          }
+          else
+          {
+            //Util::Logger::toStdOut("Active tactic COMPLETED : %d %d\n",roleID,selTactic->tState);
+          }
       }
     }
+    
 
     if (numActiveTactics > 0)
     {
@@ -127,8 +130,8 @@ namespace Strategy
       // There are no active tactics in this iteration and hence all the tactics must be completed in order to transit
       for (int roleID = 0; roleID < HomeTeam::SIZE; ++roleID)
       {
-        Tactic::ID tID       = currPlay->roleList[roleID][currTacticIdx].first;
-        Tactic*    selTactic = robot[roleID]->curTactic;
+        std::string tID       = currPlay->roleList[roleID][currTacticIdx].first;
+        Tactic*    selTactic = robot[roleID]->curTactic.get();
 
         if (!selTactic->isCompleted(state1))
         {
@@ -160,14 +163,13 @@ namespace Strategy
     //assignRoles();   //####################### why assign roles here ? ###########################
   } // selectPlay
 
-  Robot** PExec::executePlay(unsigned int* returnIndx)
+  Robot** PExec::executePlay()
   {
     //std::vector<std::pair<string, Tactic::Param> > roleList[HomeTeam::SIZE];
     if (canTransit() && tryTransit())
     {
       assignRoles();
     }
-    returnIndx=currTacticIdx;
     return robot;
   } // executePlay
 
