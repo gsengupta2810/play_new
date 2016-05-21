@@ -14,7 +14,7 @@ namespace Strategy
     state1=state;
     for (int botID = 0; botID < HomeTeam::SIZE; ++botID)
     {
-      tactic[botID] = new Tactic();
+      //tactic[botID] = new  Tactic();
       robot[botID]    = new Robot(botID,n);
     }
   } // PExec
@@ -23,7 +23,7 @@ namespace Strategy
   {
     for (int botID = 0; botID < HomeTeam::SIZE; ++botID)
     {
-      delete tactic[botID];
+      //delete tactic[botID];
       delete robot[botID];
     }
   } // ~PExec
