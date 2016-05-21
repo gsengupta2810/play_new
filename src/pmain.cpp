@@ -35,6 +35,10 @@ void Callback(const krssg_ssl_msgs::BeliefState::ConstPtr& msg)
   return;
 }
 
+void publish()
+{
+  
+}
 
 int main(int argc, char  *argv[])
 {
@@ -54,7 +58,7 @@ int main(int argc, char  *argv[])
   //****************************************************************
   krssg_ssl_msgs::TacticPacket tp0, tp1,tp2,tp3,tp4,tp5;
   ros::Rate loop_rate(100);
-  PExec pExec(state,n);
+  PExec pExec(&state,n);
   //****************************************************************
 
   while (ros::ok())

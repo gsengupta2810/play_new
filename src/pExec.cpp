@@ -8,10 +8,10 @@ using namespace std;
 
 namespace Strategy
 {
-  PExec::PExec(krssg_ssl_msgs::BeliefState& state,ros::NodeHandle& n) :
-    NaivePS(state)
+  PExec::PExec(krssg_ssl_msgs::BeliefState* state,ros::NodeHandle& n) :
+    NaivePS(*state),state1(*state)
   {
-    state1=state;
+     //state1=state;
     for (int botID = 0; botID < HomeTeam::SIZE; ++botID)
     {
       //tactic[botID] = new  Tactic();

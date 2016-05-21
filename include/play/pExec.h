@@ -32,7 +32,7 @@ namespace Strategy
     //Tactic*    tactic[HomeTeam::SIZE];
 
   public:
-    PExec(krssg_ssl_msgs::BeliefState& state,ros::NodeHandle&);
+    PExec(krssg_ssl_msgs::BeliefState* state,ros::NodeHandle&);
 
     ~PExec();
 
