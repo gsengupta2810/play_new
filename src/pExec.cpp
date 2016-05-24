@@ -155,12 +155,13 @@ namespace Strategy
     return false;
   } // tryTransit
 
-  void PExec::selectPlay(void)
+  Robot** PExec::selectPlay(void)
   {
     select();
     playResult = Play::NOT_TERMINATED;
     currTacticIdx = 0;
-    //assignRoles();   //####################### why assign roles here ? ###########################
+    assignRoles();   //####################### why assign roles here ? ###########################
+    return robot;
   } // selectPlay
 
   Robot** PExec::executePlay()
@@ -188,11 +189,13 @@ namespace Strategy
     if (playID == PlayBook::None)
     {
       //Util::Logger::toStdOut("Last Play was None!\n");
+      ROS_INFO("Last Play was None");
       return true;
     }
     if(playList[playID]->timedOut())
     {
       //Util::Logger::toStdOut("Play Timed out.\n");
+      ROS_INFO("Play Timed out");
       playResult = Play::TIMED_OUT;
       return true;
     }
@@ -203,6 +206,7 @@ namespace Strategy
      */
     if (playCompleted())
     {
+      ROS_INFO("Play Completed");
       playResult = Play::COMPLETED;
       return true;
     }
@@ -210,6 +214,7 @@ namespace Strategy
     Play::Result result = playList[playID]->done();
     if (result == Play::NOT_TERMINATED)
     {
+      ROS_INFO("Play Not terminated");
       return false;
     }
     else

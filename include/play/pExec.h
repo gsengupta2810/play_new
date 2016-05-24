@@ -50,7 +50,7 @@ namespace Strategy
     bool tryTransit(void);
 
   public:
-    void selectPlay(void);
+    Robot** selectPlay(void);
 
     Robot** executePlay();
 
