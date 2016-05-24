@@ -33,21 +33,21 @@ namespace Strategy
       roleList[0].push_back(std::make_pair("TPosition", param));
       
       param.PositionP.x= CENTER_X;
-      param.PositionP.y= CENTER_Y + GAP;
+      param.PositionP.y= CENTER_Y + 2*GAP;
       param.PositionP.finalSlope=-PI/2;
       roleList[1].push_back(std::make_pair("TPosition", param));
       
       param.PositionP.x= CENTER_X;
-      param.PositionP.y= CENTER_Y - GAP;
+      param.PositionP.y= CENTER_Y - 2*GAP;
       param.PositionP.finalSlope= PI/2;
       roleList[2].push_back(std::make_pair("TPosition", param));
       
-      param.PositionP.x= CENTER_X - GAP/2;
+      param.PositionP.x= CENTER_X - GAP;
       param.PositionP.y= CENTER_Y + GAP/2;
       param.PositionP.finalSlope= -PI/4;
       roleList[3].push_back(std::make_pair("TPosition", param));
       
-      param.PositionP.x= CENTER_X - GAP/2;
+      param.PositionP.x= CENTER_X - GAP;
       param.PositionP.y= CENTER_Y - GAP/2;
       param.PositionP.finalSlope= PI/4;
       roleList[4].push_back(std::make_pair("TPosition", param));
